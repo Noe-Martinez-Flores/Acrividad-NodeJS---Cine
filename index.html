@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Cine</title>
+</head>
+<body >
+   <h1 class="text-center"><i class="fas fa-star" style=" color: darkorange;"></i><i class="fas fa-star"  style="color: darkorange;"></i>Cine<i class="fas fa-star" style="color: darkorange;"></i><i class="fas fa-star" style="color: darkorange;"></i></h1>
+    
+   <div class="container-fluid">
+        <table class="table text-center" id="categoriaTable">
+            <thead>
+                <h2>Categoría <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createCategoria"><i class="fas fa-plus-square"></i></button></h2>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Detalles</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                </tr>
+            </tbody>
+        </table>
+   </div>
+
+   <br>
+
+   <div class="container-fluid">
+    <table class="table text-center" id="peliculaTable">
+        <thead>
+            <h2>Película <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createPelicula"><i class="fas fa-plus-square"></i></button></h2>
+            <tr>
+                <th>Título</th>
+                <th>Sinopsis</th>
+                <th>Rating</th>
+                <th>Fecha de Registro</th>
+                <th>Fecha de Actualización</th>
+                <th>Detalles</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+            </tr>
+        </tbody>
+    </table>
+    </div>
+<!--Modal Create-->
+    <div class="modal fade" id="createCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar Categoría</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" onsubmit="registerCategoria();">
+                    <div class="modal-body">
+    
+                        <label>Nombre la Categoría</label>
+                        <input type="text" class="form-control" id="nameCreate" name="nameCreate" placeholder="Nombre" required>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="createPelicula" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar Categoría</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" onsubmit="registerPelicula();">
+                    <div class="modal-body">
+    
+                        <label>Título la Película</label>
+                        <input type="text" class="form-control" id="tituloCreate" name="tituloCreate" placeholder="Título" required>
+                        <label>Descripción</label>
+                        <input type="text" class="form-control" id="descripcionCreate" name="descripcionCreate" placeholder="Descripción" required>
+                        <label>Sinopsis</label>
+                        <input type="text" class="form-control" id="sinopsisCreate" name="sinopsisCreate" placeholder="Sinopsis" required>
+                        <label>Rating</label>
+                        <input type="number" class="form-control" id="ratingCreate" name="ratingCreate" placeholder="1-10" required min="1">
+                        <label>Fecha de Registro</label>
+                        <input type="date" class="form-control" id="registerCreate" name="registerCreate"  required >
+                        <label>Cateogría</label>
+                        <input type="number" class="form-control" id="categoriaCreate" name="categoriaCreate"  required min="1" >
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Update-->
+
+    <div class="modal fade" id="updateCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualizar Categoría</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" onsubmit="updateCategoria();">
+                    <div class="modal-body">
+                        <input type="hidden" id="idCategoriaUpdate">
+                        <label>Nombre la Categoría</label>
+                        <input type="text" class="form-control" id="nameUpdate" name="nameUpdate"  required>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updatePelicula" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualizar Película</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" onsubmit="updatePelicula();">
+                    <div class="modal-body">
+                        <input type="hidden" id="idPeliculaUpdate">
+                        <label>Título la Película</label>
+                        <input type="text" class="form-control" id="tituloUpdate" name="tituloUpdate"  required>
+                        <label>Descripción</label>
+                        <input type="text" class="form-control" id="descripcionUpdate" name="descripcionUpdate"  required>
+                        <label>Sinopsis</label>
+                        <input type="text" class="form-control" id="sinopsisUpdate" name="sinopsisUpdate" required>
+                        <label>Rating</label>
+                        <input type="number" class="form-control" id="ratingUpdate" name="ratingUpdate" required >
+                        <label>Fecha de Registro</label>
+                        <input type="text" class="form-control" id="registerUpdate" name="registerUpdate"  required >
+                        <label>Cateogría</label>
+                        <input type="number" class="form-control" id="categoriaUpdate" name="categoriaUpdate"  required >
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalles -->
+
+    <div class="modal fade" id="detailsCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalles Categoría</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" >
+                    <div class="modal-body">
+                        
+                        <label>Nombre la Categoría</label>
+                        <input type="text" class="form-control" id="nameDetails" name="nameDetails"  disabled>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailsPelicula" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalles Pelicula</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                       
+                        <label>Título la Película</label>
+                        <input type="text" class="form-control" id="tituloDetails" name="tituloDetails"  disabled>
+                        <label>Descripción</label>
+                        <input type="text" class="form-control" id="descripcionDetails" name="descripcionDetails"  disabled>
+                        <label>Sinopsis</label>
+                        <input type="text" class="form-control" id="sinopsisDetails" name="sinopsisDetails" disabled>
+                        <label>Rating</label>
+                        <input type="number" class="form-control" id="ratingDetails" name="ratingDetails" disabled >
+                        <label>Fecha de Registro</label>
+                        <input type="text" class="form-control" id="registerDetails" name="registerDetails"  disabled >
+                        <label>Fecha de Actualización</label>
+                        <input type="text" class="form-control" id="updateDetails" name="updateDetails"  disabled >
+                        <label>Cateogría</label>
+                        <input type="number" class="form-control" id="categoriaDetails" name="categoriaDetails"  disabled >
+                        <label>Estado</label>
+                        <input type="text" class="form-control" id="statusDetails" name="statusDetails"  disabled >
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Eliminar -->
+
+    <div class="modal fade" id="deleteCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Categoría</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" onsubmit="deleteCategoria();">
+                    <div class="modal-body">
+                        <input type="hidden" id="idCategoriaDelete">
+                        <label>¿Esta seguro de eliminar esta categoría?</label>
+                        
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deletePelicula" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Pelicula</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" onsubmit="deletePelicula();">
+                    <div class="modal-body">
+                        <input type="hidden" id="idPeliculaDelete">
+                        <label>¿Esta seguro de eliminar esta pelicula</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
